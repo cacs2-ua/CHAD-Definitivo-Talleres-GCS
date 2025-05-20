@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(private menuCtrl: MenuController) {}
+
+  ionViewWillEnter (){
+    this.menuCtrl.enable (false, 'principal');
+  }
 
 }

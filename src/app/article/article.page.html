@@ -11,7 +11,13 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Facts about {{title}}</ion-card-title>
+      <ion-card-title>
+        Facts about {{title}}
+        <ion-icon style="float:right"
+        [name]="isFavorite?'star-outline' : 'star'"
+        [title]="isFavorite?'remove from favorites':'set as favorite'"
+        (click)="toggleFavorite()"></ion-icon>
+      </ion-card-title>
     </ion-card-header>
 
     <ion-card-content [ngSwitch]="category">
