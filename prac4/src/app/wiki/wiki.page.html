@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>wiki</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header>
+    <ion-label size="large">Categories</ion-label>
+  </ion-list-header>
+
+  <ion-list>
+    <app-category *ngFor="let cat of categories" [theCategory]="cat" [selected]="selectedCategory==cat.name"(clicked)="selectCategory($event)">
+      <ion-avatar slot="start">
+        <img [src]="'../../assets/images/categories/' + cat.image" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ cat.name }}</h2>
+      </ion-label>
+    </app-category>
+  </ion-list>
+</ion-content>
