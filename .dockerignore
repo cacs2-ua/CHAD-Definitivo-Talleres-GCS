@@ -1,0 +1,15 @@
+# Dependencias locales
+node_modules
+# Salidas de build
+www
+dist
+coverage
+# Entornos locales
+.vscode
+.idea
+# Varios
+*.log
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
