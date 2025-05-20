@@ -8,6 +8,9 @@ import { FavoritesPageRoutingModule } from './favorites-routing.module';
 
 import { FavoritesPage } from './favorites.page';
 
+import { Storage } from '@ionic/storage-angular';
+import { StorageService } from '../services/storage.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,7 @@ import { FavoritesPage } from './favorites.page';
     IonicModule,
     FavoritesPageRoutingModule
   ],
-  declarations: [FavoritesPage]
+  declarations: [FavoritesPage],
+  providers: [Storage, StorageService]
 })
 export class FavoritesPageModule {}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-favorites',
@@ -8,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesPage implements OnInit {
 
-  constructor() { }
+  favorites: any[] = [];
 
-  ngOnInit() {
+  constructor(private storageSrv: StorageService) {}
+
+  async ngOnInit() {
+    await this.storageSrv.init();
+    this.favorites = await this.storageSrv.get('favorites') || [];
+  }
+
+  /** Construye la ruta al artículo */
+  generateURL(cat: string, id: number) {
+    return `/article/${cat}/${id}`;
   }
 
 }
