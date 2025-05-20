@@ -4,18 +4,25 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Favorites</ion-title>
+    <!-- Botón para borrar todos (opcional) -->
+    <ion-buttons slot="end">
+      <ion-button (click)="clearAll()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="favorites.length; else empty">
-    <ion-item *ngFor="let fav of favorites" [routerLink]="generateURL(fav.category, fav.id)">
+    <ion-item
+      *ngFor="let fav of favorites"
+      [routerLink]="generateURL(fav.category, fav.id)">
       {{ fav.name }}
       <ion-badge slot="end">{{ fav.category }}</ion-badge>
     </ion-item>
   </ion-list>
 
-  <!-- mensaje si no hay favoritos -->
   <ng-template #empty>
     <ion-text color="medium">
       <p class="ion-padding">No tienes ningún favorito aún.</p>
