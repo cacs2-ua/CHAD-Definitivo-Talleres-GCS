@@ -17,8 +17,9 @@
   <ion-list *ngIf="favorites.length; else empty">
     <ion-item
       *ngFor="let fav of favorites"
-      [routerLink]="generateURL(fav.category, fav.id)">
-      {{ fav.name }}
+      [routerLink]="['/tabs','wiki','article', fav.category, fav.id]"
+      routerDirection="forward">
+      <ion-label>{{ fav.name }}</ion-label>
       <ion-badge slot="end">{{ fav.category }}</ion-badge>
     </ion-item>
   </ion-list>
